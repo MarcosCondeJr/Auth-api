@@ -3,7 +3,12 @@ const connectDB = require('./config/database');
 const express = require('express');
 const app = express();
 
+const UsuarioRouter = require('./routes/UsuarioRouter');
+
 connectDB();
+
+app.use(express.json());
+app.use('/auth/register', UsuarioRouter);
 
 app.get('/', (req, res) => {
     res.status(200).json({Sucess: "Olá Mundo"});
