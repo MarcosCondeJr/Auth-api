@@ -4,11 +4,13 @@ const express = require('express');
 const app = express();
 
 const UsuarioRouter = require('./routes/UsuarioRouter');
+const AuthRouter = require('./routes/AuthRouter');
 
 connectDB();
 
 app.use(express.json());
-app.use('/auth/register', UsuarioRouter);
+app.use('/auth/register', UsuarioRouter); 
+app.use('/auth/login', AuthRouter); 
 
 app.get('/', (req, res) => {
     res.status(200).json({Sucess: "Olá Mundo"});
