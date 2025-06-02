@@ -9,7 +9,7 @@ const AuthRouter = require('./routes/AuthRouter');
 connectDB();
 
 app.use(express.json());
-app.use('/auth/register', UsuarioRouter); 
+app.use('/user', UsuarioRouter); 
 app.use('/auth/login', AuthRouter); 
 
 app.get('/', (req, res) => {
