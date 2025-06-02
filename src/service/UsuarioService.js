@@ -24,6 +24,16 @@ class UsuarioService {
         const user = new User({ login, password: senhaHash, role});
         return await user.save();
     }
+
+    static async getById(idUsuario) {
+        const user = await User.findById(idUsuario, '-password');
+
+        if (!user) {
+            throw new Error("Usuário não encontrado!");
+        }
+
+        return user;
+    }
 }
 
 module.exports = UsuarioService;
